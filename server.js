@@ -18,7 +18,8 @@ app.post("/ask", async (req, res) => {
 
   const response = await openai.chat.completions.create({
     model: "gpt-4.1-mini",
-    messages: [{ role: "system", content: "You are a helpful AI teacher. Answer clearly in Hindi for students." }]
+    messages: [{ role: "system", content: "You are a helpful AI teacher. Answer clearly in Hindi for students." },
+  { role: "user", content: question }]
   });
 
   res.json({
